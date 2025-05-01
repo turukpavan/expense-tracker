@@ -10,7 +10,7 @@ const Input = ({value,onChange, placeholder, label, type}) => {
     <div>
         <label className='text-[13px] text-slate-800' >{label}</label>
 
-        <div className='input-box'>
+        <div className='input-box col-span-2 md:col-span-1 '>
             <input type={type == 'password' ? showPassword ? 'text':'password':type}
             placeholder={placeholder}
             className='w-full bg-transparent outline-none'
