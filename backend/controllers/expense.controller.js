@@ -22,8 +22,11 @@ const addExpense = async (req,res)=>{
 };
 
 const showAllExpense = async (req, res) => {
+        // const userId = req.user.id;
+        // console.log("Userid====>",userId);
+        
     try {
-        const allExpense = await ExpenseModel.find({}).sort({ createdAt: -1 }); // Sort by latest entries
+        const allExpense = await ExpenseModel.find({userId:req.user.id}).sort({ createdAt: -1 }); // Sort by latest entries
 
         res.status(200).json({ success: true, expense: allExpense });
     } catch (error) {

@@ -23,7 +23,7 @@ const addIncome = async (req,res)=>{
 
 const showAllIncome = async (req, res) => {
     try {
-        const allIncome = await IncomeModel.find({}).sort({ createdAt: -1 }); // Sort by latest entries
+        const allIncome = await IncomeModel.find({userId:req.user.id}).sort({ createdAt: -1 }); // Sort by latest entries
 
         res.status(200).json({ success: true, income: allIncome });
     } catch (error) {
